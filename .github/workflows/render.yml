@@ -1,13 +1,13 @@
 # Workflow to render Quarto documents
 on:
   push:
-    branches: [main]  # Change to your branch if not 'main'
+    branches: [main]
   pull_request:
     branches: [main]
 
 name: Render Quarto Docs
 permissions:
-  contents: write  # Allows pushing rendered files
+  contents: write
 
 jobs:
   render:
@@ -19,28 +19,28 @@ jobs:
       - name: Install Quarto CLI
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.5.57  # Stable version—avoids pre-release issues
+          version: 1.5.57
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.3.0'  # Matches common stable R
+          r-version: '4.3.0'
 
       - name: Install R dependencies
         uses: r-lib/actions/setup-renv@v2
         with:
-          cache-version: 1  # Bump if you update renv.lock
+          cache-version: 1
 
       - name: Debug: List files and check project
         shell: bash
         run: |
-          ls -la  # Lists files to check for .qmd
-          quarto check  # Validates Quarto setup
+          ls -la
+          quarto check
 
       - name: Render Quarto documents
         uses: quarto-dev/quarto-actions/render@v2
         with:
-          path: diamonds_plot.qmd  # Specific file—avoids "not a project" errors; change if your filename differs
+          path: diamonds_plot.qmd
 
       - name: Upload rendered files
         if: github.event_name != 'pull_request'
@@ -48,9 +48,9 @@ jobs:
         with:
           name: rendered-quarto
           path: |
-            *.html  # Your output file
+            *.html
 
-      - name: Commit rendered files  # Optional: Auto-push
+      - name: Commit rendered files
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
@@ -59,5 +59,5 @@ jobs:
           git add *.html
           git commit -m "Re-built Quarto documents" || echo "No changes to commit"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
