@@ -1,0 +1,32 @@
+{
+    "id": "5B5EC9A9",
+    "path": "~/diamonds/diamondsgraph.qmd",
+    "project_path": "diamondsgraph.qmd",
+    "type": "quarto_markdown",
+    "hash": "1453005342",
+    "contents": "",
+    "dirty": false,
+    "created": 1758033602309.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "27,0",
+        "scrollLine": "0",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "669:606"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1758034532,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1758034606072,
+    "read_only": false,
+    "read_only_alternatives": []
+}

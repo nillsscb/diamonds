@@ -1,0 +1,5 @@
+"0","#load ggplot"
+"0","library(ggplot2)"
+"0",""
+"0","#create line plot"
+"0","ggplot(data = diamonds, aes(x = carat, y = price)) + geom_line()"
